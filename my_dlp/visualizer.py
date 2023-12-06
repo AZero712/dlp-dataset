@@ -94,6 +94,7 @@ class Visualizer():
             points = np.linspace(bounds[0], bounds[1], num=segment['nums'], endpoint=True)
 
             waypoints[name] = points
+
         return waypoints
 
     def plot_waypoints(self, ax = None):

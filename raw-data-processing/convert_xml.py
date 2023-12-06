@@ -35,7 +35,7 @@ for f in tqdm(range(len(root))):
     trajectories = trajectories.append([{k:t.attrib[k] for k in list(t.attrib.keys())[:11]} for t in frame[:-1]])
     trajectories.insert(0, 'timestamp', frame.attrib['timestamp'])
     trajectories.insert(0, 'frame_id', frame.attrib['id'])
-    trajectory_df = trajectory_df.append(trajectories)
+    trajectory_df = trajectory_df._append(trajectories)
 
     if f % 100 == 0:
         trajectory_df.to_csv(filename_stem + '.csv', mode=('a' if f else 'w'), encoding='utf-8', index=False, header=(not f))
