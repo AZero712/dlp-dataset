@@ -24,7 +24,7 @@ class Dataset:
         self.instances = {}
         self.scenes = {}
         self.obstacles = {}
-        self.agents_num = 10
+        self.agents_num = 1
         self.agent_pred_dpose = {}
 
     def load(self, filename):
@@ -59,6 +59,7 @@ class Dataset:
                 pose = np.append(pose, instance['heading'])
                 self.update_instances(instance_token, pose)
             frame = self.frames['frame_' + str(self.frame_id)]
+
 
     def init_agents(self, agents_num):
         self.agents_token = []
