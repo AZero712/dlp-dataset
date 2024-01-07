@@ -51,7 +51,7 @@ class Dataset:
             self.update_frames()
             for instance_token in frame['instances']:
                 instance = self.instances[instance_token]
-                rot = np.array([[cos(-instance['heading']), -sin(-instance['heading'])], [sin(-instance['heading']), cos(-instance['heading'])]])
+                rot = np.array([[cos(-instance['heading']), -sin(-instance['heading'])], [sin(-instance['heading']), cos(-instance['heading'])]]).T
 
                 # update instance pose
                 pose = np.array(instance['coords'])
@@ -189,8 +189,8 @@ class Dataset:
                 # update instance pose
                 current_pose = np.array(self.instances[self.agent_pred_dpose[instance['agent_token']][1]]['coords'])
                 current_heading = self.instances[self.agent_pred_dpose[instance['agent_token']][1]]['heading']
-                rot = np.array([[cos(-current_heading), -sin(-current_heading)], [sin(-current_heading), cos(-current_heading)]])
-                dpose = np.array(self.agent_pred_dpose[instance['agent_token']][0]) / 100
+                rot = np.array([[cos(-current_heading), -sin(-current_heading)], [sin(-current_heading), cos(-current_heading)]]).T
+                dpose = np.array(self.agent_pred_dpose[instance['agent_token']][0]) / 10
                 pose = current_pose + np.dot(rot, dpose[:2]*i)
                 pose = np.append(pose, current_heading + dpose[2]*i)
                 self.update_instances(instance_token, pose)

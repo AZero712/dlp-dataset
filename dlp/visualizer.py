@@ -437,7 +437,6 @@ class SemanticVisualizer(Visualizer):
         self.plot_spots(occupy_mask=occupy_mask, draw=img_draw, fill=self.color['spot'])
         self.plot_obstacles(draw=img_draw, fill=self.color['obstacle'], scene_token=frame['scene_token'])
         self.plot_agents(draw=img_draw, fill=self.color['agent'], frame_token=frame_token, steps=self.steps, stride=self.stride)
-
         return img_frame
 
     def inst_centric(self, img_frame: Image.Image, inst_token: str, center_pose: np.ndarray=None) -> Image.Image:
