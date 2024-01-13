@@ -24,7 +24,7 @@ class Dataset:
         self.instances = {}
         self.scenes = {}
         self.obstacles = {}
-        self.agents_num = 1
+        self.agents_num = 9
         self.agent_pred_dpose = {}
 
     def load(self, filename):
@@ -68,7 +68,7 @@ class Dataset:
             agent['agent_token'] = 'agent_' + str(i)
             agent['scene_token'] = 'scene_0'
             agent['type'] = 'Car'
-            agent['size'] = [4.7048, 1.8778]
+            agent['size'] = [3.6, 1.8]
             agent['first_instance'] = None
             agent['last_instance'] = None
             self.agents[agent['agent_token']] = agent
@@ -118,8 +118,7 @@ class Dataset:
                               [25.55769231, 64.95, 0],
                               [137.12, 64.95, 3.14],
                               [100.5, 64.95, 3.14],
-                              [75.16, 46.82, 0],
-                              [9.09, 28.3, 3.14],
+                              [65.16, 46.82, 0],
                               [137.12, 28.3, 3.14],
                               [85.12, 28.3, 0],
                               [75.16, 9.99, 3.14],
