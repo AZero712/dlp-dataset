@@ -303,8 +303,8 @@ class Dataset:
             mode = 'incoming'
         elif self._will_leave_through_gate(inst_token):
             mode = 'outgoing'
-        elif instance['speed'] < static_thres:
-            mode = 'unclear'
+        # elif instance['speed'] < static_thres:
+        #     mode = 'unclear'
         else:
             mode = 'unclear'
 
